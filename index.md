@@ -6,6 +6,7 @@ hide: true
 ---
 
 My journey starts here.
+New Kasm Test
 
 > ### Markdown samples [Markdown Cheatsheet](https://www.markdownguide.org/getting-started/)
 Using markdown form index.md. We are learning markdown.
