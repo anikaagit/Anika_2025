@@ -1,10 +1,18 @@
 ---
 layout: page
-title: About
+title: About Anika
 permalink: /about/
 ---
 
-Creator of Student 2025
+
+
+<div class="profile-image">
+  <img src="{{site.baseurl}}/images/IMG_0957.jpg" alt="Me">
+  <p class="image-caption">Me</p>
+</div>
+
+
+## Places I've lived!
 
 
 <style>
@@ -16,26 +24,24 @@ Creator of Student 2025
     <!-- We are hoping to make the insides with a JavaScript object -->
 </div>
 
-<script>
-    // 1. Make a connection to the HTML container
-    var container = document.getElementById("grid_container");
 
-    // 2. Define a Javascript object for our data
-    var living_in_the_world = {
-        {"flag": "Flag_of_California", "time_lived": "Forever", "greeting": "Hey"},
-        {"flag": "Flag_of_Oregon", "time_lived": "9-years", "greeting": "Hello"},
-        {"flag": "Flag_of_England", "time_lived": "2-years", "greeting": "Alright mate"},
-        {"flag": "Flag_of_Oregon", "time_lived": "2-years", "greeting": "Aloha"},
-    }; 
-    
-    // 3a. Consider how to update style count for size of container
-    // 3b. Build a grid items inside of our container for each row of data
-    for (var row of living_in_the_world) {
-        // make a "div" with "class grid_item "div" for each row
-        // add "img" tag and "p" tags for data
-    }
-</script>
 
+<style>
+/* this is Anika's change to add styling for the profile-image class that I created for my about.mdd page*/ 
+
+.profile-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.profile-image img {
+  width: 150px;
+  height: auto;
+  border-radius: 0;
+}
+</style>
 
 <style>
     /* Style looks pretty compact, trace grid-container and grid-item in the code */
@@ -105,3 +111,19 @@ Creator of Student 2025
         container.appendChild(gridItem);
     }
 </script>
+
+## Journey Through Life
+
+- I have stayed in India for months at a time once a year, since its an important part of my culture to visit my extended relatives.
+- I have lived in California for most of my life, and its excellent weather makes it my favorite place I have lived in thus far.
+- I was born in Minnesota and only stayed there for 6 months because we weren't the biggest fans of the harsh weather
+- I stayed in Philly for one year while my mom was getting her Masters Degree at UPenn. 
+
+## Hobbies
+
+These are some hobbies I like to do for fun:
+
+- Travel
+- Dance (I have done Kathak for most of my life)
+- Painting
+- Reading
