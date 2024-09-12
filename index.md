@@ -42,3 +42,7 @@ Ocean Fun:
 
 ![image](https://github.com/user-attachments/assets/fadd6daf-6dae-45f8-badd-508f9f661202)
 
+## Submenu 1
+
+
+- [Notebook 1: Planning Notebook]({{site.baseurl}}/_notebooks/Foundation/2024-09-10-notebooks-planning.ipynb)
