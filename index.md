@@ -45,4 +45,5 @@ Ocean Fun:
 ## Submenu 1
 
 
-- [Notebook 1: Planning Notebook]({{site.baseurl}}/_notebooks/Foundation/2024-09-10-notebooks-planning.ipynb)
+- [Notebook 1: Planning Notebook]({{site.baseurl}}/_notebooks/Foundation/planning)
+- [Notebook 2: Javascript Notebook]({{site.baseurl}}/_notebooks/Foundation/javascript)
