@@ -1,0 +1,28 @@
+// _mixins.scss
+
+// Mixin used as a template for buttons
+@mixin button($backgroundColor: lightseagreen, $borderColor: black, $hoverBackgroundColor: darkslateblue) {
+  width: auto;
+  height: auto;
+  //border-radius: 10px;
+  background-color: $backgroundColor;
+  border: 3px solid $borderColor;
+  //font-size: 1.5em;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%; // This makes the button circular
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(8, 8, 8);
+
+  grid-column: span 1;
+  grid-row: span 1;
+
+  // Creates smooth animation effect
+  transition: all 0.5s;
+
+  &:hover {
+      background-color: $hoverBackgroundColor;
+  }
+}

@@ -35,3 +35,16 @@ Click on the images below to learn more about Google Gemini and OpenAI:
     </td>
 </tr>
 </table>
+
+
+
+<div>
+    <p>Thank you for reading about LLMs. To start over, please click the button below.</p>
+    <button onclick="window.location.href='/Anika_2025/'">LLM Home</button>
+</div>
+
+<div>
+    <a href="{{site.baseurl}}/google">Link to Google LLM </a><br>
+    <a href="{{site.baseurl}}/openai">Link to OpenAI LLM</a>
+    <p>Thanks for visiting my LLM Homepage!</p>
+</div>

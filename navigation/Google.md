@@ -22,14 +22,4 @@ Google Gemini is a state-of-the-art Large Language Model developed by Google. It
 - **Integration with Google Ecosystem**: As part of Google's suite of tools and technologies, Gemini is integrated with other Google services and platforms, enhancing its functionality and making it easier to incorporate into existing workflows and applications within the Google ecosystem.
 
 
-<!-- Use this script to add comments to your blog posts manually
-<script src="https://utteranc.es/client.js"
-        repo="nighthawkcoders/portfolio_2025"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
--->
 

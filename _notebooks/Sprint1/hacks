@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+
+<!-- Look in _includes/theme for <head> and <body> definitions -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SASS Hacks | Nighthawk Pages</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="SASS Hacks" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Applying review to setting up a SASS project" />
+<meta property="og:description" content="Applying review to setting up a SASS project" />
+<link rel="canonical" href="https://nighthawkcoders.github.io/portfolio_2025/sass_basics/hacks" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/portfolio_2025/sass_basics/hacks" />
+<meta property="og:site_name" content="Nighthawk Pages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-07-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SASS Hacks" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-20T00:00:00+00:00","datePublished":"2024-07-20T00:00:00+00:00","description":"Applying review to setting up a SASS project","headline":"SASS Hacks","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/portfolio_2025/sass_basics/hacks"},"url":"https://nighthawkcoders.github.io/portfolio_2025/sass_basics/hacks"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/portfolio_2025/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/portfolio_2025/feed.xml" title="Nighthawk Pages" />
+
+<!-- Include favicons --><link rel="shortcut icon" type="image/x-icon" href="/portfolio_2025/images/favicon.ico"><!-- Include Primer CSS for styling -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+
+<!-- Include Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<!-- Include Hypothesis annotations script if annotations are enabled --><!-- Include KaTeX and MathJax for rendering mathematical expressions if use_math is enabled -->
+
+
+<script>
+/**
+ * Function to wrap images with a figure and caption if they have a title attribute.
+ * This function is executed when the window loads.
+ */
+function wrap_img(fn) {
+    // Check if the document is already loaded
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        // Select all images within elements with the class 'post'
+        var elements = document.querySelectorAll(".post img");
+        // Iterate over each image element
+        Array.prototype.forEach.call(elements, function(el, i) {
+            // Check if the image has a title attribute and is not an emoji
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                // Create a figcaption element for the caption
+                const caption = document.createElement('figcaption');
+                // Create a text node with the title attribute value
+                var node = document.createTextNode(el.getAttribute("title"));
+                // Append the text node to the figcaption element
+                caption.appendChild(node);
+                // Create a figure element to wrap the image and caption
+                const wrapper = document.createElement('figure');
+                // Add the 'image' class to the figure element
+                wrapper.className = 'image';
+                // Insert the figure element before the image
+                el.parentNode.insertBefore(wrapper, el);
+                // Remove the image from its original position
+                el.parentNode.removeChild(el);
+                // Append the image and caption to the figure element
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else {
+        // If the document is not loaded, add an event listener to execute the function when it is
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+// Execute the wrap_img function when the window loads
+window.onload = wrap_img;
+</script>
+
+<script>
+/**
+ * Function to add a link icon to anchor tags with the class 'anchor-link'.
+ * This function is executed when the DOM content is loaded.
+ */
+document.addEventListener("DOMContentLoaded", function(){
+    // Select all elements with the class 'anchor-link'
+    var elem = document.querySelectorAll(".anchor-link");
+    // Iterate over each element and set its inner HTML to a Font Awesome link icon
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+});
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/portfolio_2025/">Nighthawk Pages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/portfolio_2025/navigation/game.html">Platformer</a><a class="page-link" href="/portfolio_2025/blogs/">Blogs</a><a class="page-link" href="/portfolio_2025/README4YML.html">Readme</a><a class="page-link" href="/portfolio_2025/search/">Search</a><a class="page-link" href="/portfolio_2025/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header"><table>
+    <tr>
+        <td><img src="/portfolio_2025/images/logo.png" height="60" title="SASS" alt=""></td>
+        <td><a href="/portfolio_2025/sass_basics/intro">Intro</a></td>
+        <td><a href="/portfolio_2025/sass_basics/play">Play</a></td>
+        <td><a href="/portfolio_2025/sass_basics/coding">Coding</a></td>
+        <td><a href="/portfolio_2025/sass_basics/hacks">Hacks</a></td>
+    </tr>
+</table><h1 class="post-title p-name" itemprop="name headline">SASS Hacks</h1><p class="page-description">Applying review to setting up a SASS project</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2024-07-20T00:00:00+00:00" itemprop="datePublished">
+        Jul 20, 2024
+      </time>• <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span>
+    </p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody"><ul><li><a href="#sass-hacks-overview">SASS Hacks Overview</a><ul><li><a href="#resources">Resources</a></li><li><a href="#example-folder-structure">Example Folder Structure</a><ul><li><a href="#hack-requirements">Hack Requirements</a></li></ul></li><li><a href="#add-calculator-files-to-project">Add Calculator files to Project</a><ul><li><a href="#javascript-calculator">Javascript Calculator</a></li><li><a href="#binary-calculator">Binary Calculator</a></li><li><a href="#modify-styles">Modify Styles</a></li></ul></li><li><a href="#rainbow">Rainbow</a></li><li><a href="#spin">Spin</a></li></ul></li></ul><h2 id="sass-hacks-overview">SASS Hacks Overview</h2>
+<p>The key objective of this Hack is to manage your own SASS effectively. By the end of this activity, you should be able to:</p>
+<ol>
+  <li><strong>Organize Your SASS Files</strong>: Create a structured folder that contains your SASS files.</li>
+  <li><strong>Customize Styles</strong>: Copy the provided SASS files into your own blog and make necessary changes to fit your design requirements.</li>
+</ol>
+
+<h3 id="resources">Resources</h3>
+<ul>
+  <li><strong>Reviewed Articles</strong>: Refer to the articles we have reviewed for fundamental concepts and best practices in SASS.</li>
+  <li><strong>ChatGPT</strong>: Use ChatGPT to get assistance with specific SASS features, troubleshooting, and code examples.</li>
+</ul>
+
+<h3 id="example-folder-structure">Example Folder Structure</h3>
+<p>Be sure to reference <code class="language-plaintext highlighter-rouge">portfolio_2025/_sass</code> and make adjustments to your needs.</p>
+
+<ul>
+  <li>Review the folder named <code class="language-plaintext highlighter-rouge">_sass</code> in your project directory.</li>
+  <li>Inside the <code class="language-plaintext highlighter-rouge">_sass</code> folder, create a <code class="language-plaintext highlighter-rouge">nighthawk</code> directory.</li>
+  <li>
+    <p>Observe the <code class="language-plaintext highlighter-rouge">portfolio_2025</code> folder and its files.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_sass/nighthawk
+  |_ _main.scss
+  |_ _mixins.scss 
+  |_ calculator-button.scss
+  |_ profile.scss
+  |_ dropdown-menu.scss
+  |_ platformer-game.scss
+  |_ chatbot.scss
+  |_ hacks.scss
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="hack-requirements">Hack Requirements</h4>
+<p>Describe are the required setup requirements to complete this hack.</p>
+
+<ul>
+  <li>In this hack you will need a nighthawk folder, but NOT all of the files.</li>
+  <li>Copy the _main.scss file and adjust the insides to just what is requested.
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// _main.scss</span>
+
+<span class="k">@import</span> <span class="s1">'mixins'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'calculator-button'</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Copy the <code class="language-plaintext highlighter-rouge">_mixins.scss</code> as this file will contain the “button partial” that is needed for our calculators.</li>
+  <li>Copy the <code class="language-plaintext highlighter-rouge">calculator-button.scss</code> as this file contains the “button classes” that will be used in the project.</li>
+  <li>Do not copy the remaining files, you will only need these styles if required in the future.</li>
+  <li>Future enhancements, to avoid conflicts, create your own folder structure and organizing your styles accordingly.</li>
+</ul>
+
+<h3 id="add-calculator-files-to-project">Add Calculator files to Project</h3>
+<p>Obtain code for <a href="https://nighthawkcoders.github.io/portfolio_2025/javascript/project/calculator">JS Calculator</a> and <a href="https://nighthawkcoders.github.io/portfolio_2025/javascript/project/binary-calculator">Binary Calculator</a></p>
+
+<h4 id="javascript-calculator">Javascript Calculator</h4>
+<p>Observe the button classes.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"animation"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-container"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!--result--&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-output"</span> <span class="na">id=</span><span class="s">"output"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/div&gt;</span>
+      <span class="c">&lt;!--row 1--&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-operation"</span><span class="nt">&gt;</span>+<span class="nt">&lt;/div&gt;</span>
+      <span class="c">&lt;!--row 2--&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>5<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>6<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-operation"</span><span class="nt">&gt;</span>-<span class="nt">&lt;/div&gt;</span>
+      <span class="c">&lt;!--row 3--&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>7<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>8<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>9<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-operation"</span><span class="nt">&gt;</span>*<span class="nt">&lt;/div&gt;</span>
+      <span class="c">&lt;!--row 4--&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-clear"</span><span class="nt">&gt;</span>A/C<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-number"</span><span class="nt">&gt;</span>.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"calculator-equals"</span><span class="nt">&gt;</span>=<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h4 id="binary-calculator">Binary Calculator</h4>
+<p>Observe the <code class="language-plaintext highlighter-rouge">class="calc-button"</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;td&gt;&lt;div</span> <span class="na">class=</span><span class="s">"calc-button"</span> <span class="na">id=</span><span class="s">"add1"</span> <span class="na">onclick=</span><span class="s">"add(1)"</span><span class="nt">&gt;</span>+1<span class="nt">&lt;/div&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;td</span> <span class="na">id=</span><span class="s">"binary"</span><span class="nt">&gt;</span>00000000<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;td</span> <span class="na">id=</span><span class="s">"octal"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;td</span> <span class="na">id=</span><span class="s">"hexadecimal"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;td</span> <span class="na">id=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;td&gt;&lt;div</span> <span class="na">class=</span><span class="s">"calc-button"</span> <span class="na">id=</span><span class="s">"sub1"</span> <span class="na">onclick=</span><span class="s">"add(-1)"</span><span class="nt">&gt;</span>-1<span class="nt">&lt;/div&gt;&lt;/td&gt;</span>
+</code></pre></div></div>
+
+<h4 id="modify-styles">Modify Styles</h4>
+<p>Moify the SASS files (e.g., <code class="language-plaintext highlighter-rouge">_mixins.scss</code>, <code class="language-plaintext highlighter-rouge">calculator-button.scss</code>) into your <code class="language-plaintext highlighter-rouge">sass</code> folder.</p>
+
+<p>It is important to review the style files and see if you can make the best style ever :)  This is focussed on buttons. In a large website, you would want to establish a convention for something like buttons and make sure they are consistent across pages in project.</p>
+
+<ul>
+  <li>Make changes to style and capture in your project.</li>
+  <li>Document some of the following in an Issue and discuss how they were accomplished
+    <ul>
+      <li>What is _mixins.scss file?  Where is it used?</li>
+      <li>Explain this code.  What does it define?  How is it referenced in HTML?
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.calc-button {
+    @include button();
+}
+</code></pre></div>        </div>
+      </li>
+      <li>Where is button reused?  In SASS?  In HTML?</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="rainbow">Rainbow</h3>
+<p>Optional fun stuff with rainbow.  Suggested by Finn, ask him for help.</p>
+
+<ul>
+  <li>Setup files and personal SASS in correct places.</li>
+  <li>Make the animation work in an infinite loop</li>
+  <li>Make the colors match the rainbow</li>
+  <li>Fix the keyframes</li>
+</ul>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@keyframes</span> <span class="nt">rainbow</span> <span class="p">{</span>
+  <span class="c1">// 0% { color: red; }</span>
+  <span class="nt">14</span><span class="nv">%</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nt">28</span><span class="nv">%</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nt">42</span><span class="nv">%</span> <span class="p">{</span> <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+  <span class="c1">// 57% { background-color: red; }</span>
+  <span class="nt">71</span><span class="nv">%</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nt">85</span><span class="nv">%</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">violet</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nt">100</span><span class="nv">%</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nc">.rainbow</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">animation</span><span class="p">:</span> <span class="n">rainbow</span> <span class="m">1s</span> <span class="n">linear</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">HTML</span> <span class="n">CODE</span> <span class="n">NEEDED</span><span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">"rainbow"</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<div class="rainbow"> ;) </div>
+
+<h3 id="spin">Spin</h3>
+<p>Optional fun stuff with spin, ask Finn for help.</p>
+
+<ul>
+  <li>Setup files and personal SASS in correct places.</li>
+  <li>Make the entire sping animation</li>
+</ul>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@keyframes</span> <span class="nt">spin</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="k">@keyframes</span> <span class="nt">move</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">HTML</span> <span class="n">CODE</span> <span class="n">NEEDED</span><span class="o">--&gt;</span>    
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">"spinMove"</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/portfolio_2025"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/portfolio_2025/sass_basics/hacks" hidden></a>
+</article>
+
+    </div>
+  </main><footer class="site-footer h-card">
+  <data class="u-url" href="/portfolio_2025/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://nighthawkcoders.github.io/portfolio_2025/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/portfolio_2025/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Class of 2025</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/portfolio_2025/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://x.com/NighthawkCoding/" target="_blank" title="x">
+    <svg class="svg-icon grey">
+      <use xlink:href="/portfolio_2025/assets/minima-social-icons.svg#x"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/@nighthawkcodingsociety2868" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/portfolio_2025/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+</html>
