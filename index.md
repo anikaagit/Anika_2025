@@ -7,7 +7,50 @@ hide: true
 
 {% include nav/home.html %}
 
-# Large Language Models (LLMs)
+# My Key Projects/Highlights
+
+Click on the buttons below to get a glimpse of my favorite projects!
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons Example</title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .button-primary {
+            background-color: #007bff;
+        }
+        .button-primary:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .button-secondary {
+            background-color: #6c757d;
+        }
+        .button-secondary:hover {
+            background-color: #5a6268;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <a href="/Anika_2025/rpg" class="button button-primary">RPG</a>
+    <a href="/Anika_2025/snake" class="button button-secondary">Snake</a>
+</body>
+</html>
+
+## Large Language Models (LLMs)
 
 Large Language Models (LLMs) are a powerful technology with various applications and capabilities. Here are some key points about them:
 
