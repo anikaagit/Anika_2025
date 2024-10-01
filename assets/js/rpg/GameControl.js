@@ -2,45 +2,47 @@ import GameEnv from './GameEnv.js';
 import Background from './Background.js';
 import Player from './Player.js';
 
-/**
- * The GameControl object manages the game.
- * 
- * This code uses the JavaScript "object literal pattern" which is nice for centralizing control logic.
- * 
- * The object literal pattern is a simple way to create singleton objects in JavaScript.
- * It allows for easy grouping of related functions and properties, making the code more organized and readable.
- * In the context of GameControl, this pattern helps centralize the game's control logic, 
- * making it easier to manage game states, handle events, and maintain the overall flow of the game.
- * 
- * @type {Object}
- * @property {Player} player - The player object.
- * @property {function} start - Initialize game assets and start the game loop.
- * @property {function} gameLoop - The game loop.
- * @property {function} resize - Resize the canvas and player object when the window is resized.
- */
 const GameControl = {
+    turtleImage: null, // Store turtle image
 
     start: function(assets = {}) {
-        GameEnv.create(); // Create the Game World, this is pre-requisite for all game objects.
+        GameEnv.create();
         this.background = new Background(assets.image || null);
         this.player = new Player(assets.sprite || null);
+        this.loadTurtleImage(); // Load turtle image
         this.gameLoop();
     },
 
+    loadTurtleImage: function() {
+        this.turtleImage = new Image();
+        this.turtleImage.src = '{{site.baseurl}}/images/rpg/turtle.png'; // Use site.baseurl for the path
+    },
+
     gameLoop: function() {
-        GameEnv.clear(); // Clear the canvas
+        GameEnv.clear();
         this.background.draw();
         this.player.update();
+        this.showTurtle(); // Draw turtle if it should be shown
         requestAnimationFrame(this.gameLoop.bind(this));
     },
 
-    resize: function() {
-        GameEnv.resize(); // Adapts the canvas to the new window size, ie a new Game World.
-        this.player.resize();
+    showTurtle: function() {
+        if (this.turtleImage) {
+            GameEnv.ctx.drawImage(this.turtleImage, 100, 100); // Change the position as needed
+        }
+    },
+
+    handleKeyPress: function(event) {
+        if (event.code === 'Space') {
+            this.showTurtle(); // Draw turtle when space is pressed
+        }
     }
 };
 
-// Detect window resize events and call the resize function.
+// Add event listener for key press
+window.addEventListener('keydown', GameControl.handleKeyPress.bind(GameControl));
+
+// Detect window resize events
 window.addEventListener('resize', GameControl.resize.bind(GameControl));
 
 export default GameControl;

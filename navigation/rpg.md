@@ -17,12 +17,12 @@ permalink: /rpg/
     const image = {src: image_src, data: image_data};
 
     // Sprite data
-    const sprite_src = "{{site.baseurl}}/images/rpg/turtle.png";
+    const sprite_src = "{{site.baseurl}}/images/dragon.png";
     const sprite_data = {
-        SCALE_FACTOR: 10,
+        SCALE_FACTOR: 4,
         STEP_FACTOR: 1000,
         ANIMATION_RATE: 50,
-        pixels: {height: 280, width: 256},
+        pixels: {height: 644, width: 573},
         orientation: {rows: 4, columns: 3 },
         down: {row: 0, start: 0, columns: 3 },
         left: {row: 1, start: 0, columns: 3 },
