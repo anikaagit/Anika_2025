@@ -10,17 +10,17 @@ permalink: /rpg/
     import GameControl from '{{site.baseurl}}/assets/js/rpg/GameControl.js';
 
     // Background data
-    const image_src = "{{site.baseurl}}/images/rpg/castle image.jpg";
-    const image_data = {
+    const imageSrc = "{{site.baseurl}}/images/rpg/castle image.jpg";
+    const imageData = {
         pixels: {height: 580, width: 1038}
     };
-    const image = {src: image_src, data: image_data};
+    const image = {src: imageSrc, data: imageData};
 
     // Sprite data
-    const sprite_src = "{{site.baseurl}}/images/dragon.png";
-    const sprite_data = {
-        SCALE_FACTOR: 4,
-        STEP_FACTOR: 1000,
+    const spriteSrc = "{{site.baseurl}}/images/dragon.png";
+    const spriteData = {
+        scaleFactor: 4,
+        stepFactor: 1000,
         ANIMATION_RATE: 50,
         pixels: {height: 644, width: 573},
         orientation: {rows: 4, columns: 3 },
@@ -29,7 +29,7 @@ permalink: /rpg/
         right: {row: 2, start: 0, columns: 3 },
         up: {row: 3, start: 0, columns: 3 },
     };
-    const sprite = {src: sprite_src, data: sprite_data};
+    const sprite = {src: spriteSrc, data: spriteData};
 
     // Assets for game
     //const assets = {}
