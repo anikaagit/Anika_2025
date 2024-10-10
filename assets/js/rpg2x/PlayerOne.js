@@ -1,20 +1,8 @@
 import Player from './Player.js';
-import GameEnv from './GameEnv.js'; //added this line to reference in position below
 
-
-class Fish extends Player {
-    constructor(imageSrc = null) {
-        super(imageSrc,{ x: 400, y: 290 });
-        // initiialize fish to Center/Left position
-        this.position = { x: 0, y: (GameEnv.innerHeight - this.size) / 2 }; 
-    }
-
-    update() {
-        super.update();
-    }
-
-    resize() {
-        super.resize();
+class PlayerOne extends Player {
+    constructor(data = null) {
+        super(data);
     }
 
     handleKeyDown({ keyCode }) {
@@ -61,6 +49,7 @@ class Fish extends Player {
                 break;
         }
     }
+
 }
 
-export default Fish;
+export default PlayerOne;

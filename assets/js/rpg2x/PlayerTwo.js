@@ -1,20 +1,8 @@
-import Player from './Player.js';
-import GameEnv from './GameEnv.js';
+import Player from "./Player.js";
 
-
-class Turtle extends Player {
+class PlayerTwo extends Player {
     constructor(imageSrc = null) {
         super(imageSrc);
-        // initialize to turtle to Center/Right position
-        this.position = { x: GameEnv.innerWidth - this.size, y: (GameEnv.innerHeight - this.size) / 2 }; 
-    }
-
-    update() {
-        super.update();
-    }
-
-    resize() {
-        super.resize();
     }
 
     handleKeyDown({ keyCode }) {
@@ -54,6 +42,7 @@ class Turtle extends Player {
                 break;
         }
     }
+
 }
 
-export default Turtle;
+export default PlayerTwo;
