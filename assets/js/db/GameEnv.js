@@ -71,9 +71,16 @@ class GameEnv {
      * @static
      */
     static setTop() {
+        //const header = document.querySelector('header');
+        //this.top = header ? header.offsetHeight : 0;
+
+        //this change allows the game to be played in full screen without the header showing up
         const header = document.querySelector('header');
-        this.top = header ? header.offsetHeight : 0;
+        if (header) header.style.display = 'none';  // Hide the header
+        this.top = 0;  // Ensure the canvas starts from the very top
     }
+
+
 
     /**
      * Sets the bottom offset based on the height of the footer element.
@@ -98,7 +105,10 @@ class GameEnv {
         this.canvas.style.position = 'absolute';
         this.canvas.style.left = '0px';
         this.canvas.style.top = `${this.top}px`;
+        
     }
+
+
 
     /**
      * Resizes the game environment by re-creating it.

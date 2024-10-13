@@ -8,7 +8,7 @@ import NPC from './NPC.js';
 //import Coin from './Coin.js';
 
 
-class GameLevelWater {
+class GameLevelCastle {
   constructor(path) {
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
@@ -18,11 +18,21 @@ class GameLevelWater {
     let height = GameEnv.innerHeight;
 
     // Background data
-    const image_src_water = path + "/images/rpg/water.png";
-    const image_data_water = {
-        name: 'water',
-        src: image_src_water,
+    const image_src_castle = path + "/images/db/castleinterior.jpg";
+    const image_data_castle = {
+        name: 'castle',
+        src: image_src_castle,
         pixels: {height: 580, width: 1038}
+    };
+
+    // Create a new image element
+    const castleImage = new Image();
+    castleImage.src = image_data_castle.src;
+
+    // Once the image loads, draw it on the full screen canvas
+    castleImage.onload = function () {
+      GameEnv.clear();  // Clears the canvas before drawing
+      GameEnv.ctx.drawImage(castleImage, 0, 0, width, height);  // Draws and scales the image to fit the canvas
     };
 
     // Player 1 sprite data (turtle)
@@ -75,7 +85,7 @@ class GameLevelWater {
 
     // List of objects defnitions for this level
     this.objects = [
-      { class: Background, data: image_data_water },
+      { class: Background, data: image_data_castle },
       { class: PlayerOne, data: sprite_data_turtle },
       { class: PlayerTwo, data: sprite_data_fish },
       { class: NPC, data: sprite_data_frog }
@@ -84,4 +94,4 @@ class GameLevelWater {
 
 }
 
-export default GameLevelWater;
+export default GameLevelCastle;
