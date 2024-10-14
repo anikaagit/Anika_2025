@@ -44,16 +44,16 @@ class GameLevelCastle {
     // Store the sound reference in the GameEnv for access in NPC.js
     GameEnv.proximitySound = proximitySound;
 
-    // Player 1 sprite data (turtle)
-    const TURTLE_SCALE_FACTOR = 10;
-    const sprite_src_turtle = path + "/images/db/dragon.png";
-    const sprite_data_turtle = {
-        name: 'turtle',
-        src: sprite_src_turtle,
-        SCALE_FACTOR: TURTLE_SCALE_FACTOR,
+    // Player 1 sprite data (dragon)
+    const DRAGON_SCALE_FACTOR = 10;
+    const sprite_src_dragon = path + "/images/db/dragon.png";
+    const sprite_data_dragon = {
+        name: 'dragon',
+        src: sprite_src_dragon,
+        SCALE_FACTOR: DRAGON_SCALE_FACTOR,
         STEP_FACTOR: 1000,
         ANIMATION_RATE: 50,
-        INIT_POSITION: { x: 0, y: height - (height/TURTLE_SCALE_FACTOR) }, 
+        INIT_POSITION: { x: 0, y: height - (height/DRAGON_SCALE_FACTOR) }, 
         pixels: {height: 644, width: 573},
         orientation: {rows: 4, columns: 3 },
         down: {row: 0, start: 0, columns: 3 },
@@ -95,7 +95,7 @@ class GameLevelCastle {
     // List of objects defnitions for this level
     this.objects = [
       { class: Background, data: image_data_castle },
-      { class: PlayerOne, data: sprite_data_turtle },
+      { class: PlayerOne, data: sprite_data_dragon },
       //{ class: PlayerTwo, data: sprite_data_fish },
       { class: NPC, data: sprite_data_monster }
     ];
