@@ -46,7 +46,7 @@ class GameLevelCastle {
 
     // Player 1 sprite data (turtle)
     const TURTLE_SCALE_FACTOR = 10;
-    const sprite_src_turtle = path + "/images/rpg/turtle.png";
+    const sprite_src_turtle = path + "/images/db/dragon.png";
     const sprite_data_turtle = {
         name: 'turtle',
         src: sprite_src_turtle,
@@ -54,7 +54,7 @@ class GameLevelCastle {
         STEP_FACTOR: 1000,
         ANIMATION_RATE: 50,
         INIT_POSITION: { x: 0, y: height - (height/TURTLE_SCALE_FACTOR) }, 
-        pixels: {height: 280, width: 256},
+        pixels: {height: 644, width: 573},
         orientation: {rows: 4, columns: 3 },
         down: {row: 0, start: 0, columns: 3 },
         left: {row: 1, start: 0, columns: 3 },
