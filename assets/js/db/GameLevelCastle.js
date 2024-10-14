@@ -35,6 +35,15 @@ class GameLevelCastle {
       GameEnv.ctx.drawImage(castleImage, 0, 0, width, height);  // Draws and scales the image to fit the canvas
     };
 
+    // Audio element for proximity sound
+    const proximitySound = document.createElement('audio');
+    proximitySound.src = path + "/images/db/tada.wav";  // Use your WAV file path here
+    proximitySound.preload = 'auto';
+    // Append the audio to the document (optional)
+    document.body.appendChild(proximitySound);
+    // Store the sound reference in the GameEnv for access in NPC.js
+    GameEnv.proximitySound = proximitySound;
+
     // Player 1 sprite data (turtle)
     const TURTLE_SCALE_FACTOR = 10;
     const sprite_src_turtle = path + "/images/rpg/turtle.png";

@@ -87,16 +87,19 @@ class NPC extends Player {
         var players = GameEnv.gameObjects.filter(obj => obj instanceof Player);
         var npc = this;
         var names = [];
-
+        
         if (players.length > 0 && npc) {
             players.forEach(player => {
                 // The Euclidean distance between two points in a 2D space
                 var distance = Math.sqrt(
                     Math.pow(player.position.x - npc.position.x, 2) + Math.pow(player.position.y - npc.position.y, 2)
                 );
+                //console.log("Distance between player and NPC:", distance);
                 // The distance is less than 100 pixels
                 if (player != npc && distance <= 100) {
                     names.push(player.spriteData.name);
+                    // Play sound when player is close
+                    GameEnv.proximitySound.play();
                 }
             });
             // Join all player names inside the proximity
