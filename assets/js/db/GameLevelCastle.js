@@ -96,7 +96,7 @@ class GameLevelCastle {
     this.objects = [
       { class: Background, data: image_data_castle },
       { class: PlayerOne, data: sprite_data_turtle },
-      { class: PlayerTwo, data: sprite_data_fish },
+      //{ class: PlayerTwo, data: sprite_data_fish },
       { class: NPC, data: sprite_data_monster }
     ];
   }
