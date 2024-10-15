@@ -47,6 +47,7 @@ Click on the buttons below to get a glimpse of my favorite projects!
 <body>
     <a href="/Anika_2025/rpg" class="button button-primary">RPG</a>
     <a href="/Anika_2025/snake" class="button button-secondary">Snake</a>
+    <a href="/Anika_2025/db" class="button button-primary">Dragon Battle</a>
 </body>
 </html>
 
