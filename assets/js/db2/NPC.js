@@ -6,6 +6,8 @@ class NPC extends Player {
         super(data);
         this.alertTimeout = null;
        
+        this.position = { x: 0, y: GameEnv.innerHeight/2 }; // Start from the left side of the canvas
+        this.speed = 2; // Set the speed of the NPC
     }
 
     /**
@@ -15,6 +17,7 @@ class NPC extends Player {
      * @override
      */
     update() {
+        this.move(); // Move the NPC to the right
         this.draw();
         // Check for proximity only if the cooldown is not active
         if (!this.proximityCooldown) {
@@ -23,6 +26,18 @@ class NPC extends Player {
         }
     }
 
+    /**
+    * Move the NPC to the right. If it goes off the screen, reset to the left.
+    */
+    move() {
+        this.position.x += this.speed; // Move right
+
+        // Reset position to the left if it goes off the screen
+        if (this.position.x > GameEnv.canvas.width) {
+            this.position.x = 0; // Start again from the left
+        }
+    }
+    
     /**
      * Starts a cooldown to prevent proximity checks from happening too frequently.
      * The cooldown lasts for 1000 milliseconds.
