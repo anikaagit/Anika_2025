@@ -16,8 +16,23 @@ class NPC extends Player {
      */
     update() {
         this.draw();
+        // Check for proximity only if the cooldown is not active
+        if (!this.proximityCooldown) {
+            this.checkProximityToNPC();
+            this.startCooldown();  // Start cooldown after checking
+        }
     }
 
+    /**
+     * Starts a cooldown to prevent proximity checks from happening too frequently.
+     * The cooldown lasts for 1000 milliseconds.
+     */
+    startCooldown() {
+        this.proximityCooldown = true;
+        setTimeout(() => {
+            this.proximityCooldown = false;
+        }, 1000);  // Cooldown of 1000 milliseconds (adjust as needed)
+    }
     /**
      * Handles keydown events for proximity interaction.
      * This method is triggered when a key is pressed and checks for proximity interactions.
@@ -35,7 +50,7 @@ class NPC extends Player {
         switch (key) {
             case 'e':  // Player 1 
             case 'u':  // Player 2 
-                this.checkProximityToNPC();
+                //this.checkProximityToNPC();
                 break;
         }
     }
@@ -106,6 +121,12 @@ class NPC extends Player {
                         player.decrementLives(); // Call method from PlayerOne.js
                         this.updateLivesOnScreen(player.livesRemaining); // Update lives on screen
                         //this.handleResponse("Lives Remaining" + player.livesRemaining);
+                        // Check if lives have reached 0 after decrementing
+                        if (player.livesRemaining <= 0) {
+                            player.livesRemaining = 0;  // Set lives to 0
+                            GameEnv.proximitySound.pause();  // Stop the sound
+                            GameEnv.proximitySound.currentTime = 0;  // Reset sound to start
+                        }
                 }
                 }
             });
