@@ -35,6 +35,19 @@ class GameLevelCastle {
       GameEnv.ctx.drawImage(castleImage, 0, 0, width, height);  // Draws and scales the image to fit the canvas
     };
 
+    const livesDisplay = document.createElement('div');
+    livesDisplay.id = 'lives-display';
+    livesDisplay.style.position = 'absolute';
+    livesDisplay.style.top = '10px';
+    livesDisplay.style.left = '10px';
+    livesDisplay.style.fontSize = '20px';
+    livesDisplay.style.color = 'white';
+    livesDisplay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    livesDisplay.style.padding = '10px';
+    livesDisplay.style.borderRadius = '5px';
+    livesDisplay.textContent = 'Lives Remaining: 9';  // Initial lives display
+    document.body.appendChild(livesDisplay);
+
     // Audio element for proximity sound
     const proximitySound = document.createElement('audio');
     proximitySound.src = path + "/images/db/tada.wav";  // Use your WAV file path here

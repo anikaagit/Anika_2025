@@ -5,6 +5,7 @@ class NPC extends Player {
     constructor(data = null) {
         super(data);
         this.alertTimeout = null;
+       
     }
 
     /**
@@ -100,14 +101,35 @@ class NPC extends Player {
                     names.push(player.spriteData.name);
                     // Play sound when player is close
                     GameEnv.proximitySound.play();
+                    // If the player's sprite is 'Dragon', decrement lives
+                    if (player.spriteData.name === 'dragon') {
+                        player.decrementLives(); // Call method from PlayerOne.js
+                        this.updateLivesOnScreen(player.livesRemaining); // Update lives on screen
+                        //this.handleResponse("Lives Remaining" + player.livesRemaining);
+                }
                 }
             });
             // Join all player names inside the proximity
-            if (names.length > 0) {
-                this.handleResponse(`Hello, ${names.join(', ')}`);
-            }
+            //if (names.length > 0) {
+                //this.handleResponse(`Hello, ${names.join(', ')}`);
+            //}
         }
     }
+
+/**
+     * Updates the lives remaining on the screen.
+     * 
+     * @param {number} livesRemaining - The remaining lives of the dragon to display.
+     */
+updateLivesOnScreen(livesRemaining) {
+    const livesDisplay = document.getElementById('lives-display');
+    if (livesRemaining > 0) {
+        livesDisplay.textContent = `Lives Remaining: ${livesRemaining}`;
+    } else {
+        livesDisplay.textContent = "Game Over";
+    }
+}
+
 }
 
 export default NPC;

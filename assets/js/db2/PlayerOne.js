@@ -3,6 +3,8 @@ import Player from './Player.js';
 class PlayerOne extends Player {
     constructor(data = null) {
         super(data);
+        // Initialize livesRemaining for the dragon
+        this.livesRemaining = 9;
     }
 
     handleKeyDown({ keyCode }) {
@@ -49,7 +51,16 @@ class PlayerOne extends Player {
                 break;
         }
     }
-
+// Method to decrement lives
+decrementLives() {
+    if (this.livesRemaining > 0) {
+        this.livesRemaining--;
+      
+    }
+}
 }
 
+
+
 export default PlayerOne;
+
