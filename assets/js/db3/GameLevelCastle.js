@@ -105,12 +105,26 @@ class GameLevelCastle {
         down: {row: 0, start: 1, columns: 4 },  // This is the stationary npc, down is default 
     };
 
+    // NPC sprite data (wizard)
+    const sprite_src_wizard = path + "/images/db/wizard.png";
+    const sprite_data_wizard = {
+        name: 'npc2',
+        src: sprite_src_wizard,
+        SCALE_FACTOR: 8,  // Adjust this based on your scaling needs
+        ANIMATION_RATE: 50,
+        pixels: {height: 200, width: 200},
+        INIT_POSITION: { x: width, y: height},
+        orientation: {rows: 4, columns: 4 },
+        down: {row: 0, start: 1, columns: 4 },  // This is the stationary npc, down is default 
+    };
+
     // List of objects defnitions for this level
     this.objects = [
       { class: Background, data: image_data_castle },
       { class: PlayerOne, data: sprite_data_dragon },
       //{ class: PlayerTwo, data: sprite_data_fish },
-      { class: NPC, data: sprite_data_monster }
+      { class: NPC, data: sprite_data_monster },
+      { class: NPC, data: sprite_data_wizard }
     ];
   }
 
