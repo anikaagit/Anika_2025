@@ -115,7 +115,7 @@ class GameLevelCastle {
         pixels: {height: 200, width: 200},
         INIT_POSITION: { x: width, y: height},
         orientation: {rows: 4, columns: 4 },
-        down: {row: 0, start: 1, columns: 4 },  // This is the stationary npc, down is default 
+        down: {row: 0, start: 1, columns: 3 },  // This is the stationary npc, down is default 
     };
 
     // List of objects defnitions for this level

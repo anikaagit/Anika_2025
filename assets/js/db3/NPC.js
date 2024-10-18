@@ -9,6 +9,10 @@ class NPC extends Player {
         this.position = { x: 0, y: GameEnv.innerHeight/2 }; // Start from the left side of the canvas
         this.speed = 2; // Set the speed of the NPC
         this.angle = Math.PI / 4; // Set an angle (e.g., 45 degrees)
+
+        if (this.spriteData.name === 'npc2') {
+            this.position = { x: GameEnv.innerWidth-100, y: GameEnv.innerHeight-100 }; // position for the wizard
+        }
     }
 
     /**
@@ -31,6 +35,11 @@ class NPC extends Player {
     * Move the NPC to the right. If it goes off the screen, reset to the left.
     */
     move() {
+
+        // Check if the NPC is the wizard (stationary)
+        if (this.spriteData.name === 'npc2') {
+            return;  // Skip movement for the wizard
+        }
 
         // Filter all Player objects from the game environment
         var players = GameEnv.gameObjects.filter(obj => obj instanceof Player);
