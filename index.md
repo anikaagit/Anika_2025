@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: post
 title: Student Home 
 description: Home Page
 hide: true
